@@ -1,0 +1,46 @@
+User-agent: *
+Allow: /
+Allow: /portfolio
+Allow: /services
+Allow: /about
+Allow: /contact
+Disallow: /admin
+Disallow: /search
+
+Sitemap: https://alka-events.com/sitemap.xml
+
+User-agent: GPTBot
+Allow: /
+Allow: /portfolio
+Allow: /services
+Allow: /about
+Allow: /contact
+Disallow: /admin
+Disallow: /search
+
+User-agent: CCBot
+Allow: /
+Allow: /portfolio
+Allow: /services
+Allow: /about
+Allow: /contact
+Disallow: /admin
+Disallow: /search
+
+User-agent: anthropic-ai
+Allow: /
+Allow: /portfolio
+Allow: /services
+Allow: /about
+Allow: /contact
+Disallow: /admin
+Disallow: /search
+
+User-agent: Claude-Web
+Allow: /
+Allow: /portfolio
+Allow: /services
+Allow: /about
+Allow: /contact
+Disallow: /admin
+Disallow: /search

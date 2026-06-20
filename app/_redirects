@@ -1,0 +1,4 @@
+# Netlify SPA routing
+# Ensure all routes (like /about) serve index.html
+/*    /index.html   200
+

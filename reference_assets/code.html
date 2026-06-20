@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Alka Events | Creating Unforgettable Experiences</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Framer Motion (via CDN) -->
+<script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .luxury-gradient-overlay {
+            background: linear-gradient(to top, rgba(10, 10, 10, 1) 0%, rgba(10, 10, 10, 0.4) 50%, rgba(10, 10, 10, 0.2) 100%);
+        }
+        .gold-glow:hover {
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Custom scrollbar for Quiet Luxury feel */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0A0A0A; }
+        ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 10px; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#c9c6c5",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "error": "#ffb4ab",
+                        "surface-variant": "#333535",
+                        "on-secondary-fixed-variant": "#574500",
+                        "secondary-container": "#af8d11",
+                        "secondary-fixed-dim": "#e9c349",
+                        "inverse-on-surface": "#2f3131",
+                        "on-tertiary-fixed-variant": "#564500",
+                        "on-surface": "#e2e2e2",
+                        "surface-container-low": "#1a1c1c",
+                        "tertiary-fixed-dim": "#e2c466",
+                        "on-primary-fixed-variant": "#474646",
+                        "on-tertiary": "#3c2f00",
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-secondary": "#3c2f00",
+                        "surface-dim": "#121414",
+                        "secondary-fixed": "#ffe088",
+                        "on-background": "#e2e2e2",
+                        "on-tertiary-container": "#907721",
+                        "surface-container-highest": "#333535",
+                        "tertiary-container": "#0f0a00",
+                        "outline-variant": "#444748",
+                        "on-primary": "#313030",
+                        "primary-fixed": "#e5e2e1",
+                        "on-secondary-container": "#342800",
+                        "error-container": "#93000a",
+                        "on-error-container": "#ffdad6",
+                        "inverse-primary": "#5f5e5e",
+                        "outline": "#8e9192",
+                        "on-surface-variant": "#c4c7c7",
+                        "surface-bright": "#38393a",
+                        "secondary": "#e9c349",
+                        "tertiary-fixed": "#ffe082",
+                        "on-primary-container": "#7b7979",
+                        "on-tertiary-fixed": "#231b00",
+                        "primary-container": "#0a0a0a",
+                        "surface-container-lowest": "#0c0f0f",
+                        "tertiary": "#e2c466",
+                        "background": "#121414",
+                        "on-error": "#690005",
+                        "surface": "#121414",
+                        "inverse-surface": "#e2e2e2",
+                        "surface-container": "#1e2020",
+                        "on-secondary-fixed": "#241a00",
+                        "surface-tint": "#c9c6c5",
+                        "surface-container-high": "#282a2b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "container-max": "1440px",
+                        "margin-mobile": "20px",
+                        "unit": "8px",
+                        "section-padding": "120px",
+                        "margin-desktop": "80px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Playfair Display"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["48px", {"lineHeight": "56px", "fontWeight": "600"}],
+                        "display-lg": ["72px", {"lineHeight": "84px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "30px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "26px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-secondary/20 h-20">
+<div class="flex justify-between items-center px-margin-desktop py-4 w-full max-w-container-max mx-auto h-full">
+<div class="font-headline-md text-headline-md text-on-surface tracking-tight">The Alka Events</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface hover:text-secondary transition-colors duration-300 font-label-md text-label-md" href="#services">Services</a>
+<a class="text-on-surface hover:text-secondary transition-colors duration-300 font-label-md text-label-md" href="#portfolio">Portfolio</a>
+<a class="text-on-surface hover:text-secondary transition-colors duration-300 font-label-md text-label-md" href="#about">About</a>
+<a class="text-on-surface hover:text-secondary transition-colors duration-300 font-label-md text-label-md" href="#contact">Contact</a>
+<button class="bg-secondary text-primary-container font-label-md text-label-md px-6 py-2 hover:opacity-90 transition-all active:scale-95">Get a Quote</button>
+</div>
+<!-- Mobile Menu Icon -->
+<button class="md:hidden text-secondary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative h-screen flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="A cinematic, high-end luxury ballroom event setup with hundreds of hanging crystal chandeliers and warm golden lighting. Massive floral arrangements in champagne and cream colors line the banquet tables. The atmosphere is sophisticated and grand, showcasing a quiet luxury aesthetic with deep shadows and metallic accents. The lighting is soft and atmospheric, highlighting the intricate table settings." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_kuxEq4c_rmc-VTu7MOdzphPOJpZkPSXYUz3-zlXKVc62BlYo0MBb3SUVQwvR1a67hHhbNyzpfmH95hvG12Lvk6AjHYJMZcUS7D-9BaosmC8x2fprBYAhNE2ulGinr03REiMEUlMFlTeHPiuw1GYVWFwvCkPjHJMT3UYzP-5IloUBqpsBQMxBhvZSwZan2KSUhw8u6mKsZI4xHOn6xqSgBu1USCebOmPdepKEgtU_CtpeorLClQUFUrz-bKeqgwohXH4yiz5tDl0"/>
+<div class="absolute inset-0 luxury-gradient-overlay"></div>
+</div>
+<div class="relative z-10 text-center px-margin-mobile md:px-margin-desktop max-w-4xl" id="hero-content">
+<h1 class="font-display-lg text-display-lg md:text-display-lg mb-8 leading-tight">Creating Unforgettable Experiences</h1>
+<div class="flex flex-col md:flex-row gap-4 justify-center">
+<button class="bg-secondary text-primary-container font-label-md text-label-md px-10 py-4 uppercase tracking-widest hover:opacity-90 transition-all">Book Now</button>
+<button class="border border-secondary text-secondary font-label-md text-label-md px-10 py-4 uppercase tracking-widest hover:bg-secondary hover:text-primary-container transition-all">View Portfolio</button>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="py-section-padding bg-background px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto" id="about">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+<div class="relative group">
+<div class="absolute -top-4 -left-4 w-full h-full border border-secondary/20 z-0 transition-transform group-hover:translate-x-2 group-hover:translate-y-2"></div>
+<img class="relative z-10 w-full aspect-[4/5] object-cover" data-alt="A professional luxury event planner in a tailored black suit meticulously arranging crystal glassware and metallic cutlery on a banquet table. The background is a blurred high-end gallery space with soft bokeh lighting. The focus is sharp on the precision of the hands and the shimmering textures of the premium materials, reflecting an aura of excellence and quiet luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtvcZ192lTca64aIOT51kTe2FlylefVir5-0NdYWqbclONevAX5GR-sy7o8CuJAT-tNQsmIuvaKpZc1_01oDjD0nNkEiHvhGBsb6E1t4qxM-vbVqHQWg_Wm4KrkF-oKwaFhq6IQl4nVdXMtNXNVRE6U-GjcqsINGEOTxu94xWhYuyjeLfu-VDK1eNQhsxNxHWTz5zCs6syklltp-kQR-B3MXiha6UxNxzxpwga7ToDvs6yKEbXRnVFZgwX3eFtf4fqdpKHXn8kuEE"/>
+</div>
+<div class="flex flex-col gap-6">
+<span class="text-secondary font-label-md text-label-md tracking-widest uppercase">The Alka Philosophy</span>
+<h2 class="font-headline-lg text-headline-lg">An Aura of Excellence</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                    At The Alka Events, we believe luxury isn't just about what you see, but how you feel. Our approach combines meticulous precision with the quiet elegance of minimalist design, creating immersive environments that speak volumes without saying a word.
+                </p>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    From the shimmer of champagne gold accents to the intentional use of negative space, every detail is curated to provide a frictionless, high-end experience for our exclusive clientele.
+                </p>
+<div class="mt-4">
+<a class="text-secondary font-label-md text-label-md uppercase tracking-widest border-b border-secondary/40 pb-1 hover:border-secondary transition-all" href="#">Read More About Our Process</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="py-section-padding bg-surface-container-lowest" id="services">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center mb-20">
+<h2 class="font-headline-lg text-headline-lg mb-4">Bespoke Services</h2>
+<div class="w-20 h-px bg-secondary mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Service Cards -->
+<div class="group p-10 border border-secondary/10 bg-background hover:border-secondary transition-all duration-500 gold-glow">
+<span class="material-symbols-outlined text-4xl text-secondary mb-6 block">favorite</span>
+<h3 class="font-headline-md text-headline-md mb-4 text-2xl">Wedding Planning</h3>
+<p class="text-on-surface-variant font-body-md">Curating timeless celebrations of love with editorial precision and refined elegance.</p>
+</div>
+<div class="group p-10 border border-secondary/10 bg-background hover:border-secondary transition-all duration-500 gold-glow">
+<span class="material-symbols-outlined text-4xl text-secondary mb-6 block">business_center</span>
+<h3 class="font-headline-md text-headline-md mb-4 text-2xl">Corporate Events</h3>
+<p class="text-on-surface-variant font-body-md">Sophisticated brand experiences that resonate with authority and professional excellence.</p>
+</div>
+<div class="group p-10 border border-secondary/10 bg-background hover:border-secondary transition-all duration-500 gold-glow">
+<span class="material-symbols-outlined text-4xl text-secondary mb-6 block">nightlife</span>
+<h3 class="font-headline-md text-headline-md mb-4 text-2xl">Parties</h3>
+<p class="text-on-surface-variant font-body-md">Exclusive private gatherings designed for intimacy, luxury, and unforgettable memories.</p>
+</div>
+<div class="group p-10 border border-secondary/10 bg-background hover:border-secondary transition-all duration-500 gold-glow">
+<span class="material-symbols-outlined text-4xl text-secondary mb-6 block">theater_comedy</span>
+<h3 class="font-headline-md text-headline-md mb-4 text-2xl">Concerts</h3>
+<p class="text-on-surface-variant font-body-md">High-production stage design and seamless logistics for world-class performances.</p>
+</div>
+<div class="group p-10 border border-secondary/10 bg-background hover:border-secondary transition-all duration-500 gold-glow">
+<span class="material-symbols-outlined text-4xl text-secondary mb-6 block">architecture</span>
+<h3 class="font-headline-md text-headline-md mb-4 text-2xl">Decoration</h3>
+<p class="text-on-surface-variant font-body-md">Transformative floral and spatial design using premium materials and lighting.</p>
+</div>
+<div class="group p-10 border border-secondary/10 bg-background hover:border-secondary transition-all duration-500 gold-glow">
+<span class="material-symbols-outlined text-4xl text-secondary mb-6 block">groups</span>
+<h3 class="font-headline-md text-headline-md mb-4 text-2xl">Artist Management</h3>
+<p class="text-on-surface-variant font-body-md">Securing world-tier talent and coordinating flawless guest-artist interactions.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Portfolio Section -->
+<section class="py-section-padding bg-background px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto" id="portfolio">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<div>
+<h2 class="font-headline-lg text-headline-lg">Our Portfolio</h2>
+<p class="text-on-surface-variant mt-2">A curated selection of our finest work across the globe.</p>
+</div>
+<div class="flex gap-8 text-label-md font-label-md uppercase tracking-widest text-on-surface-variant">
+<button class="text-secondary border-b border-secondary">All</button>
+<button class="hover:text-secondary transition-colors">Weddings</button>
+<button class="hover:text-secondary transition-colors">Corporate</button>
+<button class="hover:text-secondary transition-colors">Private</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter h-auto md:h-[1000px]">
+<!-- Bento-style Grid -->
+<div class="md:col-span-8 relative overflow-hidden group cursor-pointer">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A grand luxury wedding ceremony set in a modern glass pavilion at dusk. Thousands of tiny warm fairy lights and hanging candles create a magical, starry atmosphere. The aisle is lined with thick white floral clouds. The aesthetic is clean, sophisticated, and incredibly high-end, using a palette of white, crystal, and soft gold accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqeEIx9IlSoh2W96O8DMETiDL0o6Lz9yrHySQlI__FCiLRd2RF4yIVma7zt-A5SVw5T_dnVh0HIspT6UF0ov8ucepNRc5VGlQsxE2Xau2JjDGWBhjd1av-JIXHEqmFR8XKJbDB104ks4KinQKFqa5mPgCKOUEGbPIPS2t8D4jtjMmrOBo6uaYf8O2gCLaAULKMC_5Cnp4gtn80yV6LbBriFtg8qFOzmx0KHa_rxhyLf_wCt4b-SpYy4qvvLWAAXzNSrB3vN4bO_Rw"/>
+<div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+<span class="text-white font-headline-md text-headline-md">Grand Crystal Wedding</span>
+</div>
+</div>
+<div class="md:col-span-4 relative overflow-hidden group cursor-pointer">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A high-energy, elite private nightclub party with sophisticated laser lighting in deep blue and gold. Sleek modern furniture, premium champagne service, and a diverse crowd of well-dressed guests. The visual style is dark, moody, and energetic, focusing on the high-contrast lighting and premium atmosphere of an exclusive event." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnrXhG7sWFSFH05A9rqX9de1JDaFDQAYaJELah62Zq_H5puter_mZZ-vgUnrbDG9guk82FI7B9co54GhOJgpHBzj23pp9AlTvzkKNA3Gyt7vFrtF1E_Hka1hw2oKc3-puFS8hQsvLjrEMwJlFqihXb72brQH7M46U3_NnKOzhsFPGWZcxxwo6SB_ZXMV7hkS2LhK90qRyu5wHnxEirS-6_Uu6TDoeR_m1kZyeHQuGl-bG55ir6Ljyn0WmyEQz8TWEv6mYloa0_w-w"/>
+<div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center text-center p-6">
+<span class="text-white font-headline-md text-headline-md">Elite Nightlife Gala</span>
+</div>
+</div>
+<div class="md:col-span-4 relative overflow-hidden group cursor-pointer">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A minimalist corporate tech summit stage featuring a massive high-resolution LED screen and sharp, architectural lighting. The color palette is deep black and neon electric gold. The setting is a prestigious modern auditorium, emphasizing clean lines and technological sophistication in a luxury event context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBLIE0LcJfWuXiRuZJkFL9hH_blw2erYZ9y8HiA7AZReQSpuecKDWfu2UqAxADLjvPAKUJ8lWry1A14RTpaLm9CN8J9YOLlHUBthf8qWcFr3he-nNjEdHtYSRBvgTTgO3P6bXvZm8zP0I_3yrft-ms9WolCWSpU74leyRrTXbEeZ0MMkHDn3U1tYin4TYHBtUyuz8qgmeMlT7ZGjQ3eHsJ_8oAyjtFw8A6hRgEoEIk4dsa9SeFmbqn6cIJyr6tLKhMmUAr4oou6B0"/>
+<div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+<span class="text-white font-headline-md text-headline-md">Tech Summit Gala</span>
+</div>
+</div>
+<div class="md:col-span-8 relative overflow-hidden group cursor-pointer">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A refined garden party at a historical European estate during the golden hour. Long wooden tables are decorated with understated luxury: linen runners, gold-trimmed plates, and wild seasonal flowers. The mood is serene and idyllic, reflecting a high-end, quiet luxury outdoor dining experience with warm, natural lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxSrRp68thJwBWQMXvngki2NrjpiSpQvlnT_HU8S7XBa-Nap9-nKzY4bd6ICM16QlDCa4b-kylSKVMjGLyayMkL0kSzaMX4QiXEz_wI36aIrH_m_-1yPA0wJ327i9ODuFE9I-mKgGhfqcnnya1ezcd0pBxbFOKKXZZtuSgyS3VOX0MRGRfoATHw-q3LfNF9h4LGWet5hWfnrWj3EsDHXD0Wm5yoyI_sHiX8TiRc4wCJufdf2Qf9Vtc_vOE2F73-D2TnsJUfgqPgoA"/>
+<div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+<span class="text-white font-headline-md text-headline-md">Historic Estate Garden Party</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials Section -->
+<section class="py-section-padding bg-surface-container">
+<div class="px-margin-mobile md:px-margin-desktop max-w-3xl mx-auto text-center">
+<span class="material-symbols-outlined text-secondary text-6xl mb-10" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+<div class="overflow-hidden relative h-[300px]" id="testimonial-slider">
+<!-- Slides will be managed by JS -->
+<div class="testimonial-slide active">
+<p class="font-headline-md text-headline-md mb-8 italic">"The attention to detail was beyond anything we imagined. Alka transformed our vision into a masterpiece of elegance and grace."</p>
+<div class="font-label-md text-label-md uppercase tracking-widest text-secondary">H.R.H. Prince Julian</div>
+<div class="text-on-surface-variant text-sm mt-1">Royal Wedding Client</div>
+</div>
+</div>
+<div class="flex justify-center gap-4 mt-10">
+<button class="w-12 h-12 border border-secondary/20 flex items-center justify-center hover:bg-secondary hover:text-primary-container transition-all">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-12 h-12 border border-secondary/20 flex items-center justify-center hover:bg-secondary hover:text-primary-container transition-all">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Pricing Section -->
+<section class="py-section-padding bg-background">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center mb-20">
+<h2 class="font-headline-lg text-headline-lg mb-4">Investment Tiers</h2>
+<p class="text-on-surface-variant max-w-xl mx-auto">Precision-engineered packages for events that demand nothing less than perfection.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+<!-- Basic -->
+<div class="border border-secondary/10 p-10 flex flex-col items-start hover:border-secondary transition-all">
+<h3 class="font-headline-md text-headline-md mb-2">Essential</h3>
+<div class="text-secondary text-4xl font-bold mb-6">$15,000 <span class="text-sm font-normal text-on-surface-variant">Starting at</span></div>
+<ul class="space-y-4 mb-10 w-full">
+<li class="flex items-center gap-3 text-on-surface-variant"><span class="w-1.5 h-1.5 bg-secondary"></span> Concept Development</li>
+<li class="flex items-center gap-3 text-on-surface-variant"><span class="w-1.5 h-1.5 bg-secondary"></span> Basic Venue Styling</li>
+<li class="flex items-center gap-3 text-on-surface-variant"><span class="w-1.5 h-1.5 bg-secondary"></span> Vendor Coordination</li>
+</ul>
+<button class="mt-auto w-full py-4 border border-secondary text-secondary uppercase tracking-widest hover:bg-secondary hover:text-primary-container transition-all">Inquire</button>
+</div>
+<!-- Luxury (Highlighted) -->
+<div class="relative border-2 border-secondary p-10 flex flex-col items-start bg-surface-container-low transform md:scale-105 z-10">
+<div class="absolute top-0 right-0 bg-secondary text-primary-container px-4 py-1 text-xs uppercase tracking-tighter font-bold">Most Popular</div>
+<h3 class="font-headline-md text-headline-md mb-2">Exquisite</h3>
+<div class="text-secondary text-4xl font-bold mb-6">$45,000 <span class="text-sm font-normal text-on-surface-variant">Starting at</span></div>
+<ul class="space-y-4 mb-10 w-full">
+<li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-secondary"></span> Full A-Z Planning &amp; Execution</li>
+<li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-secondary"></span> Custom Floral &amp; Lighting Design</li>
+<li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-secondary"></span> Celebrity Entertainment Booking</li>
+<li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-secondary"></span> On-site Guest Management</li>
+</ul>
+<button class="mt-auto w-full py-4 bg-secondary text-primary-container uppercase tracking-widest hover:opacity-90 transition-all font-bold">Secure Your Date</button>
+</div>
+<!-- Premium -->
+<div class="border border-secondary/10 p-10 flex flex-col items-start hover:border-secondary transition-all">
+<h3 class="font-headline-md text-headline-md mb-2">Imperial</h3>
+<div class="text-secondary text-4xl font-bold mb-6">Custom <span class="text-sm font-normal text-on-surface-variant">Contact Us</span></div>
+<ul class="space-y-4 mb-10 w-full">
+<li class="flex items-center gap-3 text-on-surface-variant"><span class="w-1.5 h-1.5 bg-secondary"></span> Multi-Day Destination Planning</li>
+<li class="flex items-center gap-3 text-on-surface-variant"><span class="w-1.5 h-1.5 bg-secondary"></span> Private Jet Logistics</li>
+<li class="flex items-center gap-3 text-on-surface-variant"><span class="w-1.5 h-1.5 bg-secondary"></span> 24/7 Dedicated Concierge</li>
+</ul>
+<button class="mt-auto w-full py-4 border border-secondary text-secondary uppercase tracking-widest hover:bg-secondary hover:text-primary-container transition-all">Consultation</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-section-padding bg-surface-container-lowest" id="contact">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-20">
+<!-- Contact Form -->
+<div>
+<h2 class="font-headline-lg text-headline-lg mb-8">Let's Create Together</h2>
+<form class="space-y-8">
+<div class="relative group">
+<input class="w-full bg-transparent border-0 border-b border-outline/30 py-4 px-0 text-on-surface focus:ring-0 focus:border-secondary transition-colors placeholder:text-on-surface-variant/50 placeholder:uppercase placeholder:text-xs placeholder:tracking-widest" placeholder="Full Name" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<input class="w-full bg-transparent border-0 border-b border-outline/30 py-4 px-0 text-on-surface focus:ring-0 focus:border-secondary transition-colors placeholder:text-on-surface-variant/50 placeholder:uppercase placeholder:text-xs placeholder:tracking-widest" placeholder="Phone Number" type="tel"/>
+<select class="w-full bg-transparent border-0 border-b border-outline/30 py-4 px-0 text-on-surface focus:ring-0 focus:border-secondary transition-colors appearance-none">
+<option class="bg-background">Event Type</option>
+<option class="bg-background">Wedding</option>
+<option class="bg-background">Corporate</option>
+<option class="bg-background">Private Party</option>
+</select>
+</div>
+<input class="w-full bg-transparent border-0 border-b border-outline/30 py-4 px-0 text-on-surface focus:ring-0 focus:border-secondary transition-colors text-xs text-on-surface-variant/50" type="date"/>
+<textarea class="w-full bg-transparent border-0 border-b border-outline/30 py-4 px-0 text-on-surface focus:ring-0 focus:border-secondary transition-colors placeholder:text-on-surface-variant/50 placeholder:uppercase placeholder:text-xs placeholder:tracking-widest" placeholder="Your Vision" rows="4"></textarea>
+<button class="bg-secondary text-primary-container font-label-md text-label-md px-12 py-5 uppercase tracking-widest hover:opacity-90 transition-all font-bold">Send Inquiry</button>
+</form>
+</div>
+<!-- Map & Info -->
+<div class="flex flex-col gap-10">
+<div class="h-80 w-full overflow-hidden grayscale contrast-125">
+<div class="w-full h-full bg-surface-container flex items-center justify-center">
+<!-- Simulated Map -->
+<img class="w-full h-full object-cover opacity-50" data-alt="A clean, minimalist street map of Paris, France, styled in a dark mode aesthetic with deep grays and subtle metallic gold accents for landmarks. The map represents a sophisticated urban environment, used as a backdrop for a luxury event planning contact page." data-location="Paris, France" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZN48zTHrP78Nt3Xgs6QhQJen6XkmbpknQ1asWftqFuKyR_U2xqnU7WFsj8i0JQg06-4YAWBzghL9WcH9nD4ZhSjgLyRGirVP5vF4Fx4APmZQEkbfe319wbdQEy-QrxJequri56h0U-_hgRYWPek-A-YhCq7ZDmCTjXxv5YVnue_g6WwbCinX89pOK-NatqQA38GRxW-cXw9u6cAwiqaqugMrjAglw3eUn2wf5p5G3dOzVszam1nKyrzyrBabuNnKtNmoqrWUu8Gg"/>
+<div class="absolute text-secondary flex flex-col items-center">
+<span class="material-symbols-outlined text-4xl mb-2" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<span class="font-label-md text-xs uppercase tracking-widest">Headquarters</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-10">
+<div>
+<h4 class="font-label-md text-secondary uppercase tracking-widest mb-4">Paris Office</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">124 Avenue des Champs-Élysées<br/>75008 Paris, France</p>
+</div>
+<div>
+<h4 class="font-label-md text-secondary uppercase tracking-widest mb-4">New York Studio</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">5th Avenue at 59th St<br/>New York, NY 10022, USA</p>
+</div>
+</div>
+<div class="flex gap-6 mt-4">
+<a class="text-on-surface hover:text-secondary transition-colors" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+<a class="text-on-surface hover:text-secondary transition-colors" href="#"><span class="material-symbols-outlined">call</span></a>
+<a class="text-on-surface hover:text-secondary transition-colors" href="#"><span class="material-symbols-outlined">share</span></a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-secondary/10 w-full py-section-padding">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop max-w-container-max mx-auto">
+<div class="flex flex-col gap-6">
+<div class="font-headline-md text-headline-md text-on-surface">The Alka Events</div>
+<p class="text-on-surface-variant text-sm">Quiet luxury for those who appreciate the finer details of life.</p>
+</div>
+<div>
+<h4 class="font-label-md text-secondary uppercase tracking-widest mb-6">Quick Links</h4>
+<ul class="flex flex-col gap-3">
+<li><a class="text-on-surface-variant hover:text-secondary hover:translate-x-1 transition-all inline-block" href="#">Our Portfolio</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary hover:translate-x-1 transition-all inline-block" href="#">The Philosophy</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary hover:translate-x-1 transition-all inline-block" href="#">Latest News</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary hover:translate-x-1 transition-all inline-block" href="#">Bookings</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-secondary uppercase tracking-widest mb-6">Services</h4>
+<ul class="flex flex-col gap-3">
+<li><a class="text-on-surface-variant hover:text-secondary hover:translate-x-1 transition-all inline-block" href="#">Weddings</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary hover:translate-x-1 transition-all inline-block" href="#">Corporate</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary hover:translate-x-1 transition-all inline-block" href="#">Gala Events</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary hover:translate-x-1 transition-all inline-block" href="#">Private Galas</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-secondary uppercase tracking-widest mb-6">Contact Info</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">concierge@thealkaevents.com<br/>+33 1 23 45 67 89</p>
+<div class="flex gap-4">
+<span class="w-8 h-8 border border-secondary/20 rounded-full flex items-center justify-center text-xs hover:border-secondary transition-colors cursor-pointer">IG</span>
+<span class="w-8 h-8 border border-secondary/20 rounded-full flex items-center justify-center text-xs hover:border-secondary transition-colors cursor-pointer">LI</span>
+<span class="w-8 h-8 border border-secondary/20 rounded-full flex items-center justify-center text-xs hover:border-secondary transition-colors cursor-pointer">TW</span>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-desktop mt-20 pt-10 border-t border-secondary/5 text-center text-on-surface-variant text-xs tracking-widest uppercase">
+            © 2024 The Alka Events. All rights reserved.
+        </div>
+</footer>
+<!-- Floating WhatsApp Button -->
+<a class="fixed bottom-10 right-10 z-50 w-16 h-16 bg-secondary text-primary-container flex items-center justify-center rounded-full shadow-2xl hover:scale-110 transition-transform active:scale-95 duration-200" href="https://wa.me/yournumber" target="_blank">
+<span class="material-symbols-outlined text-3xl">chat</span>
+</a>
+<script>
+        // Framer Motion Animation Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const { motion, animate, stagger, inView } = FramerMotion;
+
+            // Hero Section Fade-in-up
+            const heroContent = document.querySelector('#hero-content');
+            animate(heroContent, { opacity: [0, 1], y: [50, 0] }, { duration: 1.2, ease: [0.19, 1, 0.22, 1] });
+
+            // Reveal animations on scroll
+            inView("section", (info) => {
+                const target = info.target;
+                animate(target, { opacity: [0, 1], y: [20, 0] }, { duration: 0.8, delay: 0.2 });
+            });
+
+            // Service Cards Stagger
+            inView("#services .grid", (info) => {
+                const cards = info.target.querySelectorAll('.group');
+                animate(cards, { opacity: [0, 1], y: [30, 0] }, { delay: stagger(0.1), duration: 0.6 });
+            });
+
+            // Portfolio Grid Entrance
+            inView("#portfolio .grid", (info) => {
+                const items = info.target.children;
+                animate(items, { opacity: [0, 1], scale: [0.95, 1] }, { delay: stagger(0.15), duration: 0.8 });
+            });
+        });
+
+        // Simple Testimonial Logic
+        let currentTestimonial = 0;
+        const testimonials = document.querySelectorAll('.testimonial-slide');
+        setInterval(() => {
+            testimonials[currentTestimonial].classList.remove('active');
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            testimonials[currentTestimonial].classList.add('active');
+        }, 5000);
+    </script>
+</body></html>
