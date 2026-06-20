@@ -12,6 +12,7 @@
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^4.18.2",
+    "firebase": "^12.15.0",
     "framer-motion": "^11.0.0",
     "netlify": "^26.1.0",
     "react": "^18.3.1",

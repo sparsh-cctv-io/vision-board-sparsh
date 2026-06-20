@@ -8,7 +8,7 @@ const AdminPage = () => {
     'Admin panel for managing The Alka Events website content including hero, portfolio, services, and pricing information.'
   );
 
-  const { content, updateContent, resetContent, saveContent, saveError, loading } = useContent();
+  const { content, updateContent, resetContent, saveContent, saveError, loading, isFirebaseConfigured } = useContent();
   const [statusMessage, setStatusMessage] = useState('');
 
   const handleSave = async () => {
@@ -79,7 +79,12 @@ const AdminPage = () => {
           <div>
             <p className="text-sm uppercase tracking-[0.35em] text-secondary">Content Portal</p>
             <h1 className="mt-4 text-4xl font-semibold">Edit website content live</h1>
-            <p className="mt-2 text-on-surface-variant">Update hero text, portfolio slides, services, and pricing. Changes persist locally in your browser.</p>
+            <p className="mt-2 text-on-surface-variant">
+              Update hero text, portfolio slides, services, and pricing.
+              {isFirebaseConfigured
+                ? ' Changes sync in real time across all devices.'
+                : ' Connect Firebase to enable real-time sync across devices.'}
+            </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-end">
             <button

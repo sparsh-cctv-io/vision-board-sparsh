@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import defaultContent from '../data/defaultContent';
+import { database, ref, set, onValue, isFirebaseConfigured } from '../firebase';
 
 const ContentContext = createContext(null);
 
@@ -11,6 +12,21 @@ export const ContentProvider = ({ children }) => {
   const [saveError, setSaveError] = useState(null);
 
   useEffect(() => {
+    if (isFirebaseConfigured && database) {
+      const contentRef = ref(database, 'siteContent');
+      const unsubscribe = onValue(contentRef, (snapshot) => {
+        const data = snapshot.val();
+        if (data) {
+          setContent(data);
+        }
+        setLoading(false);
+      }, (error) => {
+        console.warn('Firebase read error, using defaults:', error);
+        setLoading(false);
+      });
+      return () => unsubscribe();
+    }
+
     const apiBase = (import.meta.env && import.meta.env.VITE_API_BASE_URL) || '';
     const buildUrl = (path) => `${apiBase.replace(/\/$/, '')}${path}`;
 
@@ -18,13 +34,11 @@ export const ContentProvider = ({ children }) => {
       try {
         const url = buildUrl('/api/content');
         const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error('Unable to load content from backend');
-        }
+        if (!response.ok) throw new Error('Unable to load content from backend');
         const data = await response.json();
         setContent(data);
       } catch (error) {
-        console.warn('Failed to load backend content, using defaults:', error);
+        console.warn('Using default content:', error.message);
       } finally {
         setLoading(false);
       }
@@ -47,20 +61,24 @@ export const ContentProvider = ({ children }) => {
 
   const saveContent = async (nextContent) => {
     try {
+      if (isFirebaseConfigured && database) {
+        const contentRef = ref(database, 'siteContent');
+        await set(contentRef, nextContent);
+        setSaveError(null);
+        return { success: true };
+      }
+
       const apiBase = (import.meta.env && import.meta.env.VITE_API_BASE_URL) || '';
       const buildUrl = (path) => `${apiBase.replace(/\/$/, '')}${path}`;
       const response = await fetch(buildUrl('/api/content'), {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(nextContent)
       });
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
-        const errorMessage = errorData.error || 'Unable to save content';
-        throw new Error(errorMessage);
+        throw new Error(errorData.error || 'Unable to save content');
       }
 
       setContent(nextContent);
@@ -81,7 +99,7 @@ export const ContentProvider = ({ children }) => {
   };
 
   const value = useMemo(
-    () => ({ content, updateContent, resetContent, saveContent, loading, saveError }),
+    () => ({ content, updateContent, resetContent, saveContent, loading, saveError, isFirebaseConfigured }),
     [content, loading, saveError]
   );
 
