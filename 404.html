@@ -355,8 +355,8 @@ function toast(msg){const el=q('toast');if(!el)return;el.textContent=msg;el.clas
 
 /* ═══ MEDIA PROCESSING ═══════════════════════════════ */
 function readFile(file){return new Promise((r,e)=>{const rd=new FileReader();rd.onload=ev=>r(ev.target.result);rd.onerror=e;rd.readAsDataURL(file);});}
-function compressImg(src){return new Promise(r=>{const img=new Image();img.onload=()=>{const M=1400,s=Math.min(1,M/Math.max(img.width,img.height));const c=document.createElement('canvas');c.width=img.width*s;c.height=img.height*s;c.getContext('2d').drawImage(img,0,0,c.width,c.height);r(c.toDataURL('image/jpeg',.82));};img.src=src;});}
-function vidThumb(src){return new Promise(r=>{const v=document.createElement('video');v.preload='metadata';v.muted=true;v.src=src;let ok=false;const fin=x=>{if(!ok){ok=true;r(x);}};v.addEventListener('loadeddata',()=>{v.currentTime=Math.min(1,(v.duration||0)*.1);});v.addEventListener('seeked',()=>{try{const c=document.createElement('canvas');const w=Math.min(v.videoWidth,640),h=Math.round(w/v.videoWidth*v.videoHeight);c.width=w;c.height=h;c.getContext('2d').drawImage(v,0,0,w,h);fin(c.toDataURL('image/jpeg',.75));}catch{fin(null);}});v.addEventListener('error',()=>fin(null));setTimeout(()=>fin(null),6000);});}
+function compressImg(src){return new Promise(r=>{const img=new Image();img.onload=()=>{const M=600,s=Math.min(1,M/Math.max(img.width,img.height));const c=document.createElement('canvas');c.width=img.width*s;c.height=img.height*s;c.getContext('2d').drawImage(img,0,0,c.width,c.height);r(c.toDataURL('image/jpeg',.55));};img.src=src;});}
+function vidThumb(src){return new Promise(r=>{const v=document.createElement('video');v.preload='metadata';v.muted=true;v.src=src;let ok=false;const fin=x=>{if(!ok){ok=true;r(x);}};v.addEventListener('loadeddata',()=>{v.currentTime=Math.min(1,(v.duration||0)*.1);});v.addEventListener('seeked',()=>{try{const c=document.createElement('canvas');const w=Math.min(v.videoWidth,320),h=Math.round(w/v.videoWidth*v.videoHeight);c.width=w;c.height=h;c.getContext('2d').drawImage(v,0,0,w,h);fin(c.toDataURL('image/jpeg',.5));}catch{fin(null);}});v.addEventListener('error',()=>fin(null));setTimeout(()=>fin(null),6000);});}
 
 async function processFiles(files, ideaId=null){
   let n=0;
@@ -364,14 +364,13 @@ async function processFiles(files, ideaId=null){
     if(f.size>80*1024*1024){toast(`⚠️ ${f.name} too large (max 80MB)`);continue;}
     const isImg=f.type.startsWith('image/'),isVid=f.type.startsWith('video/');
     if(!isImg&&!isVid){toast(`Skipped: ${f.name}`);continue;}
-    const raw=await readFile(f);
     const id=Date.now()+Math.random();
     if(isImg){
+      const raw=await readFile(f);
       const data=await compressImg(raw);
       S.gallery.push({id,type:'image',data,thumb:data,name:f.name,ideaId:ideaId||null,addedDate:today()});
     } else {
-      const thumb=await vidThumb(raw);
-      S.gallery.push({id,type:'video',data:raw,thumb,name:f.name,isLocal:true,ideaId:ideaId||null,addedDate:today()});
+      toast(`⚠️ Videos: use "Add YouTube URL" instead (saves space)`);continue;
     }
     n++;
   }
