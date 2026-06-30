@@ -11,7 +11,9 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Inter',-apple-system,sans-serif;background:#070D1A;color:#E2E8F0;min-height:50vh;cursor:url('cursor3.png') 0 0, auto;}
-a, button, select, label, .gthumb, .vbtn, .abtn, .gfbtn, .xcls, .delbtn, .uplbl, .uplbl-out {
+a, a *, button, button *, select, select *, label, label *,
+.gthumb, .gthumb *, .vbtn, .abtn, .gfbtn, .xcls, .delbtn, .uplbl, .uplbl *, .uplbl-out, .uplbl-out *,
+.mcard, .mcard *, .imwrap, .imwrap *, .goverlay, .ddisc, .dsav, .assign-sel {
   cursor: url('hand.png') 11 0, pointer !important;
 }
 /* HEADER */
